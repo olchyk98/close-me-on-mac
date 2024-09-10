@@ -1,10 +1,13 @@
 # Close Me on Mac 🖥️
 
 ## Purpose
-
+Quickly close running applications right from your terminal.
+With great control comes ultimate power 💪
 
 ## Implementation
-@inquirer/prompts
+For the CLI tool I'm going to use node.js with bun runtime.
+For UI components I'm going with `@inquirer/prompts`.
+And for shell execution I'm going to use bun's native `$` shell.
 
 ## Inspiration for this project
 I am a person of multi-tasking. Whenever I am heavily invested in to doing something on my Mac,
