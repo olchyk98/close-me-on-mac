@@ -1,0 +1,24 @@
+{
+  "name": "close-me-on-mac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bun run run.ts",
+    "test": "pnpm lint",
+    "lint": "eslint ./**/*.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@stylistic/eslint-plugin-ts": "^2.3.0",
+    "@types/bun": "^1.1.9",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.7.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^7.16.1"
+  }
+}
