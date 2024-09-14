@@ -20,5 +20,9 @@
     "eslint-plugin-import": "^2.29.1",
     "globals": "^15.9.0",
     "typescript-eslint": "^7.16.1"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^5.5.0",
+    "inquirer-select-pro": "1.0.0-alpha.7"
   }
 }
