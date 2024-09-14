@@ -7,6 +7,10 @@
 Quickly close running applications right from your terminal.
 With great control comes ultimate power 💪
 
+## Disclaimer
+The code for this application has been written in under 30 minutes.
+A fun coding spike with some banger songs and ultra fast vim keybindings.
+
 ## Implementation
 For the CLI tool I'm going to use node.js with bun runtime.
 For UI components I'm going with `@inquirer/prompts`.
