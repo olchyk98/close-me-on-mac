@@ -1,5 +1,8 @@
 # Close Me on Mac 🖥️
 
+## Demo
+[![asciicast](https://asciinema.org/a/p8nKTVCp0Pl2W4To6iYX51iUu.svg)](https://asciinema.org/a/p8nKTVCp0Pl2W4To6iYX51iUu)
+
 ## Purpose
 Quickly close running applications right from your terminal.
 With great control comes ultimate power 💪
