@@ -4,11 +4,11 @@ import { safe } from '../_internal'
 
 const execPromised = util.promisify(execWithCb)
 
-async function fn (command: string): Promise<string> {
-  const { stderr, stdout } = await execPromised(command)
-  if (stderr) throw new EvalError(stderr)
-  return stdout
-}
-
-export const exec = safe(fn)
+export const exec = safe(
+  async (command: string): Promise<string> => {
+    const { stderr, stdout } = await execPromised(command)
+    if (stderr) throw new EvalError(stderr)
+    return stdout
+  },
+)
 
