@@ -37,5 +37,5 @@ Feel free to submit a Pull Request if you come up with an interesting feature fo
 
 ## The only MacOS read payload used in this project
 ```
-osascript -e 'tell application "System Events" to set output to ""' -e 'tell application "System Events" to repeat with proc in (processes where background only is false)' -e 'set output to output & name of proc & " (" & unix id of proc & ")" & linefeed' -e 'end repeat' -e 'return output'
+lsappinfo list
 ```

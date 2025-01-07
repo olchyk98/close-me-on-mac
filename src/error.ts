@@ -30,3 +30,9 @@ export class NoApplicationsSelected extends Signal {
     super('No applications were chosen.')
   }
 }
+
+export class NoApplicationsToSelect extends Signal {
+  constructor () {
+    super('No applications to select.')
+  }
+}

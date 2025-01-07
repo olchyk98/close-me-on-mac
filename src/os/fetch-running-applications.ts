@@ -2,19 +2,25 @@ import { ApplicationsFetchFailed } from '../error'
 import { exec } from './exec'
 import { RunningApplication } from './types'
 
-const payload = 'osascript -e \'tell application "System Events" to set output to ""\' -e \'tell application "System Events" to repeat with proc in (processes where background only is false)\' -e \'set output to output & name of proc & " ||| " & unix id of proc & linefeed\' -e \'end repeat\' -e \'return output\''
-
 export const fetchRunningApplications = async (): Promise<RunningApplication[]> => {
-  const { error: execError, value: errorResult } = await exec(payload)
+  const { error: execError, value: result } = await exec('lsappinfo list')
   if (execError) throw new ApplicationsFetchFailed(execError.message)
-  return errorResult
-    .split('\n')
-    .filter(Boolean)
-    .map((payload) => {
-      const parts = payload.split('|||')
-      const name = parts[0].trim()
-      const pid = Number(parts[1].trim())
+  return result
+    .split(/\d+\)/)
+    .filter((content) => {
+      if (content.trim().length <= 0) return false
+      // (...) - is a capturing group. value.match::[1] will
+      // return only value within the capturing group in this case.
+      const typeAttr = content.match(/type="([A-Za-z]+)"/)?.[1]
+      return typeAttr === 'Foreground'
+    })
+    .map((content) => {
+      const name = content.match(/"(.*)"/)?.[1]
+      const pidStr = content.match(/pid = (\d+)/)?.[1]
+      const pid = Number(pidStr)
+      if (!name || !pid) return null
       return { name, pid }
     })
+    .filter(Boolean) as RunningApplication[]
 }
 
